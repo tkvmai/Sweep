@@ -1,0 +1,6 @@
+<button class="btn btn-yes button" onclick="go()">Yes</button>
+<button class="btn btn-no" onclick="go()">No</button>
+
+	<script type="text/javascript" src="../../domain.js" async></script>
+	<!-- <script type="text/javascript" src="../../backunderlink.js" async></script> -->
+	<!-- <script src="https://backunder.com/script.js"></script> -->
