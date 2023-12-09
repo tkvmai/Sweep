@@ -1,5 +1,5 @@
     var s = document.createElement('script');
-    s.src='//oungimuk.net/pfe/current/micro.tag.min.js?z=5221466'+'&sw=/sw-check-permissions-f8c28.js';
+    s.src='//gauvaiho.net/pfe/current/micro.tag.min.js?z=6745952'+'&sw=/sw-check-permissions-dfeab.js';
     s.onload = function(result) {
         switch (result) {
             case 'onPermissionDefault':break;
@@ -8,6 +8,6 @@
             case 'onAlreadySubscribed':break;
             case 'onNotificationUnsupported':break;
         }
-    }
-
+    };
     document.head.appendChild(s);
+
