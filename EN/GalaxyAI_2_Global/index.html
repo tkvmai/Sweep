@@ -16,7 +16,8 @@
           .then(translations => {
             const userLang = navigator.language.slice(0, 2);
             const lang = translations[userLang] ? userLang : 'en';
-
+			
+			// Apply translations
             // Use innerHTML to correctly apply bold text, emojis, and formatting
             document.getElementById("promo").innerHTML = translations[lang].promo;
             document.getElementById("apply-btn").innerHTML = translations[lang].apply;
@@ -24,6 +25,14 @@
             document.getElementById("survey").innerHTML = translations[lang].survey;
             document.getElementById("bonus").innerHTML = translations[lang].bonus;
             document.getElementById("gifts").innerHTML = translations[lang].gifts;
+			// **Auto-switch to RTL if Arabic (ar) is detected**
+			if (lang === "ar") {
+				document.documentElement.setAttribute("dir", "rtl");
+				document.body.style.textAlign = "right"; // Align text for RTL
+			} else {
+				document.documentElement.setAttribute("dir", "ltr");
+				document.body.style.textAlign = "left"; // Reset for LTR languages
+			}
           })
           .catch(error => console.error("Error loading translations:", error));
       });

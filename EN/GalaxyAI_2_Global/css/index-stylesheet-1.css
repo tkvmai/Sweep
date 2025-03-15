@@ -6,6 +6,29 @@ html>body {
     background: #fff
 }
 
+/* Arabic-specific RTL layout */
+[dir="rtl"] body {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .container {
+  text-align: right;
+}
+
+[dir="rtl"] .promo-box {
+  text-align: right;
+}
+
+[dir="rtl"] .navbar {
+  direction: rtl;
+}
+
+[dir="rtl"] .carousel-slide {
+  direction: rtl;
+}
+
+
 .container>.navbar>.container>.bs-navbar-collapse {
     background: #fff
 }
